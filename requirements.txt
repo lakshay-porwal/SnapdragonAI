@@ -1,0 +1,14 @@
+# VibeGuard NeuroEdge - ARM64 and x64 compatible dependencies
+fastapi>=0.110.0
+uvicorn>=0.28.0
+pydantic>=2.6.0
+numpy>=1.26.0,<2.0.0
+scipy>=1.12.0
+torch>=2.2.0
+onnx>=1.15.0
+onnxruntime>=1.17.0
+pyserial>=3.5
+requests>=2.31.0
+websockets>=12.0
+pytest>=8.0.0
+python-dotenv>=1.0.1

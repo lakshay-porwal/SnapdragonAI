@@ -1,0 +1,38 @@
+{
+  "timestamp": "2026-09-30 00:30:00",
+  "hardware_environment": {
+    "os": "Windows",
+    "machine": "amd64",
+    "processor": "Intel64 Family 6 Model 154 Stepping 3, GenuineIntel",
+    "is_arm64": false,
+    "is_snapdragon_detected": false,
+    "available_execution_providers": [
+      "AzureExecutionProvider",
+      "CPUExecutionProvider"
+    ],
+    "qnn_available": false,
+    "dml_available": false,
+    "recommended_provider": "CPUExecutionProvider",
+    "status_label": "Intel/x64 CPU Fallback (Intel64 Family 6 Model 154 Stepping 3, GenuineIntel)",
+    "is_npu_active": false,
+    "truthful_note": "Executing on native Intel CPU fallback for development. Target Snapdragon NPU will be activated when deployed to Snapdragon HP PC."
+  },
+  "iterations": 500,
+  "batch_size": 1,
+  "cpu_benchmark": {
+    "provider": "CPUExecutionProvider",
+    "precision": "INT8",
+    "model_size_kb": 63.89,
+    "mean_latency_ms": 0.55,
+    "p50_latency_ms": 0.437,
+    "p95_latency_ms": 0.656,
+    "p99_latency_ms": 3.325,
+    "min_latency_ms": 0.344,
+    "throughput_inf_per_sec": 1816.7
+  },
+  "snapdragon_npu_benchmark": {
+    "provider": "QNNExecutionProvider (Snapdragon Hexagon NPU)",
+    "status": "Snapdragon benchmark pending hardware validation on target Snapdragon-powered HP PC.",
+    "theoretical_speedup_expected": "3.5x - 6.0x over CPU with sub-millisecond inference and zero thermal throttling on ARM64 Hexagon NPU."
+  }
+}

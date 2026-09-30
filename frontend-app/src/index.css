@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ═══════════════════════════════════════════════════
+   VIBEGUARD NEUROEDGE — DESIGN SYSTEM
+   Light = default  |  Dark = [data-theme="dark"] on <html>
+═══════════════════════════════════════════════════ */
+
+/* ── Palette tokens ────────────────────────────── */
+:root {
+  /* Page */
+  --bg-page:     #f0f2f7;
+  --bg-base:     #ffffff;
+  --bg-raised:   #f8fafc;
+  --bg-sunken:   #eef1f6;
+  --bg-navbar:   rgba(255, 255, 255, 0.85);
+  --bg-sidebar:  #ffffff;
+
+  /* Borders */
+  --border:      rgba(15, 23, 42, 0.08);
+  --border-md:   rgba(15, 23, 42, 0.14);
+
+  /* Text */
+  --tx-1:  #0f172a;
+  --tx-2:  #334155;
+  --tx-3:  #64748b;
+  --tx-4:  #94a3b8;
+
+  /* Accent – Snapdragon Red */
+  --red:       #e11d48;
+  --red-a10:   rgba(225, 29, 72, 0.08);
+  --red-a20:   rgba(225, 29, 72, 0.16);
+  --red-a30:   rgba(225, 29, 72, 0.24);
+
+  /* Status */
+  --green:     #10b981;
+  --green-a10: rgba(16, 185, 129, 0.10);
+  --amber:     #f59e0b;
+  --amber-a10: rgba(245, 158, 11, 0.10);
+  --blue:      #3b82f6;
+  --blue-a10:  rgba(59, 130, 246, 0.10);
+  --violet:    #8b5cf6;
+  --violet-a10:rgba(139, 92, 246, 0.10);
+
+  /* Charts */
+  --chart-grid:   rgba(15, 23, 42, 0.06);
+  --chart-axis:   #94a3b8;
+  --tooltip-bg:   #1e293b;
+  --tooltip-tx:   #f8fafc;
+
+  /* Shadows */
+  --s1: 0 1px 3px rgba(15,23,42,0.06), 0 1px 2px rgba(15,23,42,0.04);
+  --s2: 0 4px 12px rgba(15,23,42,0.08), 0 2px 4px rgba(15,23,42,0.04);
+  --s3: 0 8px 24px rgba(15,23,42,0.10), 0 4px 8px rgba(15,23,42,0.05);
+
+  /* Scrollbar */
+  --sb-track: #e2e8f0;
+  --sb-thumb: #cbd5e1;
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --bg-page:    #080c14;
+  --bg-base:    #0f1623;
+  --bg-raised:  #141d2e;
+  --bg-sunken:  rgba(255,255,255,0.03);
+  --bg-navbar:  rgba(8, 12, 20, 0.88);
+  --bg-sidebar: #0a0f1c;
+
+  --border:     rgba(255, 255, 255, 0.07);
+  --border-md:  rgba(255, 255, 255, 0.12);
+
+  --tx-1: #f1f5f9;
+  --tx-2: #94a3b8;
+  --tx-3: #64748b;
+  --tx-4: #334155;
+
+  --red:       #f43f5e;
+  --red-a10:   rgba(244, 63, 94, 0.10);
+  --red-a20:   rgba(244, 63, 94, 0.18);
+  --red-a30:   rgba(244, 63, 94, 0.28);
+
+  --green:     #34d399;
+  --green-a10: rgba(52, 211, 153, 0.10);
+  --amber:     #fbbf24;
+  --amber-a10: rgba(251, 191, 36, 0.10);
+  --blue:      #60a5fa;
+  --blue-a10:  rgba(96, 165, 250, 0.10);
+  --violet:    #a78bfa;
+  --violet-a10:rgba(167, 139, 250, 0.10);
+
+  --chart-grid:  rgba(255,255,255,0.04);
+  --chart-axis:  #475569;
+  --tooltip-bg:  #0f1623;
+  --tooltip-tx:  #f1f5f9;
+
+  --s1: 0 1px 3px rgba(0,0,0,0.35);
+  --s2: 0 4px 16px rgba(0,0,0,0.40);
+  --s3: 0 8px 32px rgba(0,0,0,0.50);
+
+  --sb-track: #0f1623;
+  --sb-thumb: #1e293b;
+
+  color-scheme: dark;
+}
+
+/* ── Base reset ────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-font-smoothing: antialiased; }
+
+  body {
+    margin: 0;
+    background: var(--bg-page);
+    color: var(--tx-1);
+    font-family: 'Inter', 'Plus Jakarta Sans', system-ui, sans-serif;
+    overflow-x: hidden;
+    transition: background 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* ── Reusable card skin ────────────────────────── */
+.card {
+  background: var(--bg-base);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--s2);
+  transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  border-color: var(--border-md);
+  box-shadow: var(--s3);
+}
+
+/* Keep backward compat alias */
+.glass-panel { background: var(--bg-base); border: 1px solid var(--border); box-shadow: var(--s2); transition: background 0.2s, border-color 0.2s; }
+
+/* ── Scrollbars ────────────────────────────────── */
+::-webkit-scrollbar          { width: 4px; height: 4px; }
+::-webkit-scrollbar-track    { background: var(--sb-track); }
+::-webkit-scrollbar-thumb    { background: var(--sb-thumb); border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { opacity: 0.75; }
+
+/* ── Micro-animations ──────────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+.pulse { animation: pulse-dot 1.6s ease-in-out infinite; }
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in { animation: fade-in 0.3s ease forwards; }
